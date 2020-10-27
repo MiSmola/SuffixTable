@@ -7,14 +7,15 @@
 
 
 #include <xstring>
+#include "PatternOccurrence.h"
 
 class FileExecutor {
 public:
-    void createResultFile();
+    std::string createResultFile(std::string pathToFile, patternOccurrence *patternOccurrence);
 
     std::string loadTextFile();
 
-    std::string* loadPatternFile();
+    std::string *loadPatternFile();
 };
 
 
