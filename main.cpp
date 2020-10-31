@@ -5,6 +5,7 @@
 #include "AlgorithmExecutor.h"
 #include "FileExecutor.h"
 #include "PatternOccurrence.h"
+#include "List.h"
 
 int main() {
     AlgorithmExecutor *algorithmExecutor = new AlgorithmExecutor();
@@ -16,9 +17,9 @@ int main() {
     //File operations
     FileExecutor *fileExecutor = new FileExecutor();
     PatternOccurrence *patternOccurrence = new PatternOccurrence();
-    patternOccurrence->add("CAT", new int[2]{10, 11}, 2);
+    patternOccurrence->add("CAT\nA\nCAT\n", new int[2]{10, 11}, 2);
     std::string path = fileExecutor->createResultFile("C:\\Users\\djnic\\git\\SuffixTable", patternOccurrence);
-
-
+    std::string text = fileExecutor->loadTextFile("C:\\Users\\djnic\\git\\SuffixTable\\resultFile.txt");
+    List<int> myList;
     return 0;
 }

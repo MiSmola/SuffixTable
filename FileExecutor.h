@@ -13,9 +13,9 @@ class FileExecutor {
 public:
     std::string createResultFile(std::string pathToFile, PatternOccurrence *patternOccurrence);
 
-    std::string loadTextFile();
+    std::string loadTextFile(std::string pathToSourceFile);
 
-    std::string *loadPatternFile();
+    std::string *loadPatternFile(std::string pathToPatternFile);
 };
 
 
