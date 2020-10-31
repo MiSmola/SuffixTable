@@ -11,7 +11,7 @@ std::string FileExecutor::createResultFile(std::string pathToFile, PatternOccurr
     // TODO: pass file name with path as the parameter and return path to the file (include file name f.eg. C:\Users\harrypotter\blyskawica\hagrid.txt)
     std::string s;
     std::ofstream file;
-    file.open(pathToFile);
+    file.open(pathToFile + "\\resultFile.txt");
     // TODO: PatternOccurrence object as the method parameter, occurrences should be written in the output file
     if (file.is_open()) {
         int i = 0;
