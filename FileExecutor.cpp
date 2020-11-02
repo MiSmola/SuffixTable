@@ -10,60 +10,55 @@
 #include "List.h"
 
 
-std::string FileExecutor::createResultFile(std::string pathToFile, PatternOccurrence *patternOccurrence) {
-    // TODO: pass file name with path as the parameter and return path to the file (include file name f.eg. C:\Users\harrypotter\blyskawica\hagrid.txt)
-    std::string s;
+std::string FileExecutor::createResultFile(std::string pathToFile, List<PatternOccurrence> patternOccurrence) {
+    std::string patterns;
     std::ofstream file;
     file.open(pathToFile + "\\resultFile.txt");
-    // TODO: PatternOccurrence object as the method parameter, occurrences should be written in the output file
     if (file.is_open()) {
-        int i = 0;
-        struct patternOccurrence *patternOccurrenceStructure = patternOccurrence->getPatternOccurrence();
-        while (i != patternOccurrence->getPatternCount()) {
-            s = patternOccurrenceStructure[i].pattern + ": ";
-            if (patternOccurrenceStructure[i].occurences == 0) s += "brak";
-            for (int j = 0; j < patternOccurrenceStructure[i].numberOfOccurrences; j++)
-                s += (std::to_string(patternOccurrenceStructure[i].occurences[j]) + ", ");
+        for (int i = 0; i < patternOccurrence.getSize(); i++) {
+            patterns = patternOccurrence.get(i).getPattern() + ": ";
+            if (patternOccurrence.get(i).getOccurrences().isEmpty()) patterns += "brak";
+            for (int j = 0; j < patternOccurrence.get(i).getOccurrences().getSize(); j++)
+                patterns += (std::to_string(patternOccurrence.get(i).getOccurrences().get(j)) + ", ");
             i++;
         }
-        file << s;
+        file << patterns;
         file.close();
     } else
-        std::cerr << "Error opening file"  << std::endl;
+        std::cerr << "Error opening file" << std::endl;
     return pathToFile;
 }
 
 std::string FileExecutor::loadTextFile(std::string pathToSourceFile) {
-    // TODO: pass file as the parameter
-    // TODO: ignore white characters except space
     std::ifstream file(pathToSourceFile);
-    std::string s, z;
-    if (file.is_open()){
+    std::string line, result;
+    if (file.is_open()) {
         while (!file.eof()) {
-            getline(file, s);
-            z = z + s;
+            getline(file, line);
+            result += line;
         }
-    std::cout << z << std::endl;
-    }
-    else
+        std::cout << result << std::endl;
+    } else
+        // TODO: pass file name into the cerr
         std::cerr << "File " << "test.txt" << " can't be opened..." << std::endl;
     file.close();
-    return z;
+    return result;
 }
 
-std::string *FileExecutor::loadPatternFile(std::string pathToPatternFile) {
+List<std::string> FileExecutor::loadPatternFile(std::string pathToPatternFile) {
     std::ifstream file(pathToPatternFile);
-    std::string s;
-    List<std::string> listOfPatterns
+    std::string line;
+    List<std::string> listOfPatterns;
     if (file.is_open())
         while (!file.eof()) {
-            getline(file, s);
-            listOfPatterns.push //TODO: loadPatterFunction using the List
-            std::cout << s << std::endl;
+            getline(file, line);
+            listOfPatterns.add(line);
+            std::cout << line << std::endl;
         }
     else
+        // TODO: pass file name into the cerr
         std::cerr << "File " << "test.txt" << " can't be opened..." << std::endl;
     file.close();
-    return new std::string[0];
+    return listOfPatterns;
 }
 

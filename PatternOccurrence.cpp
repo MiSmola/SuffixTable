@@ -5,31 +5,15 @@
 #include <iostream>
 #include "PatternOccurrence.h"
 
-PatternOccurrence::PatternOccurrence() {
-    struct patternOccurrence *patoc = new struct patternOccurrence[1];
-    this->patternOccurrence = patoc;
-    this->patternOccurrenceSize = 1;
-    this->patternCount = 0;
+PatternOccurrence::PatternOccurrence() {}
+
+PatternOccurrence::PatternOccurrence(const std::string &pattern, List<int> occurrences) : pattern(
+        pattern), occurrences(occurrences) {}
+
+const std::string &PatternOccurrence::getPattern() const {
+    return pattern;
 }
 
-int PatternOccurrence::getPatternCount() const {
-    return patternCount;
+List<int> &PatternOccurrence::getOccurrences() {
+    return occurrences;
 }
-
-void PatternOccurrence::add(std::string _pattern, int *_occurences, int _numberOfOccurrences) {
-    if (patternCount != patternOccurrenceSize) {
-        struct patternOccurrence po(_pattern, _occurences, _numberOfOccurrences);
-        this->patternOccurrence[0] = po;
-        this->patternCount++;
-    } else
-        std::cerr << "The array can store only " << patternCount << " patterns" << std::endl;
-}
-
-patternOccurrence *PatternOccurrence::getPatternOccurrence() const {
-    return patternOccurrence;
-}
-
-patternOccurrence::patternOccurrence(const std::string &pattern, int *occurences, int numberOfOccurrences) : pattern(
-        pattern), occurences(occurences), numberOfOccurrences(numberOfOccurrences) {}
-
-patternOccurrence::patternOccurrence() {}
