@@ -6,7 +6,7 @@
 #define SUFFIXTABLE_ALGORITHM_H
 
 
-#include "PTable.h"
+#include "../model/PTable.h"
 
 class Algorithm {
 public:

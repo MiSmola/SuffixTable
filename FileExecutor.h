@@ -7,8 +7,7 @@
 
 
 #include <xstring>
-#include "PatternOccurrence.h"
-#include "List.h"
+#include "model/PatternOccurrence.h"
 
 class FileExecutor {
 public:

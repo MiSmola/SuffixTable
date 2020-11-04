@@ -6,8 +6,6 @@
 #include <fstream>
 #include <string>
 #include "FileExecutor.h"
-#include "PatternOccurrence.h"
-#include "List.h"
 
 
 std::string FileExecutor::createResultFile(std::string pathToFile, List<PatternOccurrence> patternOccurrence) {
