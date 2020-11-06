@@ -6,8 +6,11 @@
 #define SUFFIXTABLE_PTABLE_H
 
 
-class PTable {
+#include <string>
 
+class PTable {
+public:
+    virtual std::string to_string();
 };
 
 

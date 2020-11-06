@@ -7,15 +7,15 @@
 
 
 #include <xstring>
+#include "model/PatternOccurrence.h"
 
 class FileExecutor {
 public:
-    void createResultFile();
+    std::string createResultFile(std::string pathToFile, List <PatternOccurrence> patternOccurrence);
 
-    std::string loadTextFile();
+    std::string loadTextFile(std::string pathToSourceFile);
 
-    std::string* loadPatternFile();
+    List <std::string> loadPatternFile(std::string pathToPatternFile);
 };
-
 
 #endif //SUFFIXTABLE_FILEEXECUTOR_H

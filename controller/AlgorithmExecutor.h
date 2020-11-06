@@ -11,7 +11,7 @@
 class AlgorithmExecutor {
     Algorithm *algorithm;
 public:
-    PTable execute();
+    PTable *execute();
 
     void setAlgorithm(Algorithm *_algorithm);
 };

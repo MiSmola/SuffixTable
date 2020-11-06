@@ -3,4 +3,4 @@ project(SuffixTable)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(SuffixTable main.cpp SuffixTable.cpp SuffixTable.h Algorithm.h PTable.cpp PTable.h LCPTable.cpp LCPTable.h AlgorithmExecutor.cpp AlgorithmExecutor.h FileExecutor.cpp FileExecutor.h PatternExecutor.cpp PatternExecutor.h)
+add_executable(SuffixTable main.cpp model/List.cpp model/List.h controller/SuffixTableAlgorithm.cpp controller/SuffixTableAlgorithm.h controller/Algorithm.h model/PTable.cpp model/PTable.h controller/LCPTableAlgorithm.cpp controller/LCPTableAlgorithm.h controller/AlgorithmExecutor.cpp controller/AlgorithmExecutor.h FileExecutor.cpp FileExecutor.h controller/PatternExecutor.cpp controller/PatternExecutor.h model/PatternOccurrence.cpp model/PatternOccurrence.h model/SuffixTable.cpp model/SuffixTable.h model/LCPTable.cpp model/LCPTable.h)

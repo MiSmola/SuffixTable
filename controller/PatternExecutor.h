@@ -6,8 +6,8 @@
 #define SUFFIXTABLE_PATTERNEXECUTOR_H
 
 
-#include "FileExecutor.h"
-#include "PTable.h"
+#include "../FileExecutor.h"
+#include "../model/PTable.h"
 
 class PatternExecutor {
     FileExecutor *fileExecutor;
