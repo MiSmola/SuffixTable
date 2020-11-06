@@ -8,7 +8,8 @@
 #include "PTable.h"
 
 class LCPTable : public PTable {
-
+public:
+    std::string to_string();
 };
 
 #endif //SUFFIXTABLE_LCPTABLE_H

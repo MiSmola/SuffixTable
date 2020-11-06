@@ -78,11 +78,13 @@ public:
     std::string to_string() {
         std::string result = "[";
         Node<T> *temp = head;
-        while (temp->next) {
-            result += (temp->data + ", ");
-            temp = temp->next;
+        if (temp != NULL) {
+            while (temp->next) {
+                result += (temp->data + ", ");
+                temp = temp->next;
+            }
+            result += (temp->data);
         }
-        result += (temp->data);
         result += "]";
         return result;
     }

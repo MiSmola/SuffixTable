@@ -8,7 +8,7 @@
 #include "FileExecutor.h"
 
 
-std::string FileExecutor::createResultFile(std::string pathToFile, List<PatternOccurrence> patternOccurrence) {
+std::string FileExecutor::createResultFile(std::string pathToFile, List <PatternOccurrence> patternOccurrence) {
     std::string patterns;
     std::ofstream file;
     file.open(pathToFile + "\\resultFile.txt");
@@ -43,10 +43,10 @@ std::string FileExecutor::loadTextFile(std::string pathToSourceFile) {
     return result;
 }
 
-List<std::string> FileExecutor::loadPatternFile(std::string pathToPatternFile) {
+List <std::string> FileExecutor::loadPatternFile(std::string pathToPatternFile) {
     std::ifstream file(pathToPatternFile);
     std::string line;
-    List<std::string> listOfPatterns;
+    List <std::string> listOfPatterns;
     if (file.is_open())
         while (!file.eof()) {
             getline(file, line);

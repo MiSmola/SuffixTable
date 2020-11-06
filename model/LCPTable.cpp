@@ -3,3 +3,7 @@
 //
 
 #include "LCPTable.h"
+
+std::string LCPTable::to_string() {
+    return std::string();
+}

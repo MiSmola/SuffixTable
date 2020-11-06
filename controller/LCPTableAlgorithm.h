@@ -10,7 +10,7 @@
 
 class LCPTableAlgorithm : public Algorithm {
 public:
-    PTable execute();
+    PTable *execute();
 };
 
 

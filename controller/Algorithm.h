@@ -10,7 +10,7 @@
 
 class Algorithm {
 public:
-    virtual PTable execute() = 0;
+    virtual PTable *execute() = 0;
 };
 
 

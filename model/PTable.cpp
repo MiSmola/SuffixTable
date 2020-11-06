@@ -3,3 +3,7 @@
 //
 
 #include "PTable.h"
+
+std::string PTable::to_string() {
+    return std::string();
+}

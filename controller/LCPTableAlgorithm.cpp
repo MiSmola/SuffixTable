@@ -5,7 +5,7 @@
 #include <iostream>
 #include "LCPTableAlgorithm.h"
 
-PTable LCPTableAlgorithm::execute() {
+PTable *LCPTableAlgorithm::execute() {
     std::cout << "LCPTableAlgorithm algorithm executed" << std::endl;
-    return PTable();
+    return new PTable();
 }

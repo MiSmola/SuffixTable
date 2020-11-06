@@ -9,8 +9,14 @@
 #include "Algorithm.h"
 
 class SuffixTableAlgorithm : public Algorithm {
+    std::string text;
+    std::string *textCharacters;
+    int length;
+    int *index;
+    std::string *suffix;
 public:
-    PTable execute();
+    SuffixTableAlgorithm(std::string text);
+    PTable *execute();
 };
 
 
