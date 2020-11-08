@@ -23,3 +23,27 @@ std::string SuffixTable::to_string() {
             result += (suffix[iterate] + "\t" + std::to_string(index[iterate]) + "\n");
     return result;
 }
+
+int *SuffixTable::getIndex() const {
+    return index;
+}
+
+void SuffixTable::setIndex(int *index) {
+    SuffixTable::index = index;
+}
+
+std::string *SuffixTable::getSuffix() const {
+    return suffix;
+}
+
+void SuffixTable::setSuffix(std::string *suffix) {
+    SuffixTable::suffix = suffix;
+}
+
+int SuffixTable::getLength() const {
+    return length;
+}
+
+void SuffixTable::setLength(int length) {
+    SuffixTable::length = length;
+}

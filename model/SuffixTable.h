@@ -18,6 +18,18 @@ public:
 
     SuffixTable(int length);
 
+    int *getIndex() const;
+
+    void setIndex(int *index);
+
+    std::string *getSuffix() const;
+
+    void setSuffix(std::string *suffix);
+
+    int getLength() const;
+
+    void setLength(int length);
+
     void add(int index, std::string suffix, int idx);
 
     std::string to_string();
