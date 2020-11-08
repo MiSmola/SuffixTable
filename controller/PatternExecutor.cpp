@@ -50,12 +50,12 @@ bool PatternExecutor::findAll(PTable *pTable) {
         }
         middleValueIndex = (middleValueIndex - 1) / 2;
         while (currentPattern.compare(suffixes[(int) middleValueIndex].substr(0, temporaryPatternLength)) != 0) {
-            if (tolower(currentPattern[0]) <
-                tolower(suffixes[(int) middleValueIndex][0])) {    //patteren jest mniejszy niź znak wskazanego suffixu a < A
+            // TODO: Use own lolower(string) method for current pattern and suffixed(middleValueIndex)
+            if (currentPattern.compare(suffixes[(int) middleValueIndex].substr(0, temporaryPatternLength)) < 0) {
                 highValueIndex = middleValueIndex;
                 middleValueIndex = (0 + highValueIndex) / 2;
             }
-            if (tolower(currentPattern[0]) > tolower(suffixes[(int) middleValueIndex][0])) {
+            if (currentPattern.compare(suffixes[(int) middleValueIndex].substr(0, temporaryPatternLength)) > 0) {
                 lowValueIndex = middleValueIndex;
                 middleValueIndex = (lowValueIndex + length - 1) / 2;
             }
@@ -75,7 +75,9 @@ bool PatternExecutor::findAll(PTable *pTable) {
         patternOccurrences.add(PatternOccurrence(currentPattern, occurrences));
     }
 
-    fileExecutor->createResultFile(pathToResultFile, patternOccurrences);
+    fileExecutor->
+            createResultFile(pathToResultFile, patternOccurrences
+    );
     return true;
 }
 
