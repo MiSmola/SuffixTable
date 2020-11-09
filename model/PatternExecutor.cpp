@@ -4,7 +4,7 @@
 
 #include <iostream>
 #include "PatternExecutor.h"
-#include "../model/SuffixTable.h"
+#include "datastructures/SuffixTable.h"
 
 PatternExecutor::PatternExecutor(FileExecutor *fileExecutor, std::string pathToResultFile,
                                  std::string pathToPatternFile, std::string pathToTextFile)

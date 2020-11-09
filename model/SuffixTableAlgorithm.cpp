@@ -4,7 +4,7 @@
 
 #include <iostream>
 #include "SuffixTableAlgorithm.h"
-#include "../model/SuffixTable.h"
+#include "datastructures/SuffixTable.h"
 
 SuffixTableAlgorithm::SuffixTableAlgorithm(std::string text) : text(text) {
     this->textCharacters = new std::string[text.length()];
