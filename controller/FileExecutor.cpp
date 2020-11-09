@@ -8,17 +8,17 @@
 #include "FileExecutor.h"
 
 
-std::string FileExecutor::createResultFile(std::string pathToFile, List <PatternOccurrence> patternOccurrence) {
+std::string FileExecutor::createResultFile(std::string pathToFile, List<PatternOccurrence> patternOccurrence) {
     std::string patterns;
     std::ofstream file;
-    file.open(pathToFile + "\\resultFile.txt");
+    file.open(pathToFile + "\\resultFile.txt", std::ios_base::app);
     if (file.is_open()) {
         for (int i = 0; i < patternOccurrence.getSize(); i++) {
-            patterns = patternOccurrence.get(i).getPattern() + ": ";
+            patterns += patternOccurrence.get(i).getPattern() + ": ";
             if (patternOccurrence.get(i).getOccurrences().isEmpty()) patterns += "brak";
             for (int j = 0; j < patternOccurrence.get(i).getOccurrences().getSize(); j++)
                 patterns += (std::to_string(patternOccurrence.get(i).getOccurrences().get(j)) + ", ");
-            i++;
+            patterns += "\n";
         }
         file << patterns;
         file.close();
@@ -43,10 +43,10 @@ std::string FileExecutor::loadTextFile(std::string pathToSourceFile) {
     return result;
 }
 
-List <std::string> FileExecutor::loadPatternFile(std::string pathToPatternFile) {
+List<std::string> FileExecutor::loadPatternFile(std::string pathToPatternFile) {
     std::ifstream file(pathToPatternFile);
     std::string line;
-    List <std::string> listOfPatterns;
+    List<std::string> listOfPatterns;
     if (file.is_open())
         while (!file.eof()) {
             getline(file, line);

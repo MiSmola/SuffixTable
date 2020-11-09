@@ -11,11 +11,11 @@
 
 class FileExecutor {
 public:
-    std::string createResultFile(std::string pathToFile, List <PatternOccurrence> patternOccurrence);
+    std::string createResultFile(std::string pathToFile, List<PatternOccurrence> patternOccurrence);
 
     std::string loadTextFile(std::string pathToSourceFile);
 
-    List <std::string> loadPatternFile(std::string pathToPatternFile);
+    List<std::string> loadPatternFile(std::string pathToPatternFile);
 };
 
 #endif //SUFFIXTABLE_FILEEXECUTOR_H
