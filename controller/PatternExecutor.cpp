@@ -33,7 +33,8 @@ bool PatternExecutor::findAll(PTable *pTable) {
     for (int i = 0; i < patterns.getSize(); i++) {
         std::string currentPattern = this->patterns.get(i);
         int patternBeginningIndex = 0, patternEndingIndex = length;
-        int lowValueIndex, middleValueIndex = length, highValueIndex = length, temporaryPatternLength = currentPattern.length();
+        int lowValueIndex, middleValueIndex = length, highValueIndex =
+                length - 1, temporaryPatternLength = currentPattern.length();
 
         if (currentPattern.compare(0, temporaryPatternLength, suffixes[(int) middleValueIndex / 2]) == 0) {
             for (int i = 0; i < middleValueIndex / 2; i++) {
@@ -48,16 +49,23 @@ bool PatternExecutor::findAll(PTable *pTable) {
                 }
             }
         }
-        middleValueIndex = (middleValueIndex - 1) / 2;
-        while (currentPattern.compare(suffixes[(int) middleValueIndex].substr(0, temporaryPatternLength)) != 0) {
-            // TODO: Use own lolower(string) method for current pattern and suffixed(middleValueIndex)
+        middleValueIndex = (length - 1) / 2;
+        lowValueIndex = 0;
+        highValueIndex = length - 1;
+        while (currentPattern.compare(suffixes[(int) middleValueIndex].substr(0, temporaryPatternLength)) != 0
+               && highValueIndex - lowValueIndex > 1) {
+            // TODO: Use own tolower(string) method for current pattern and suffixes(middleValueIndex)
             if (currentPattern.compare(suffixes[(int) middleValueIndex].substr(0, temporaryPatternLength)) < 0) {
                 highValueIndex = middleValueIndex;
-                middleValueIndex = (0 + highValueIndex) / 2;
+                middleValueIndex = (highValueIndex - lowValueIndex) / 2 + lowValueIndex;
+                continue;
             }
             if (currentPattern.compare(suffixes[(int) middleValueIndex].substr(0, temporaryPatternLength)) > 0) {
                 lowValueIndex = middleValueIndex;
-                middleValueIndex = (lowValueIndex + length - 1) / 2;
+                middleValueIndex = (((length - 1) - lowValueIndex + 1) / 2) + lowValueIndex;
+//                if(currentPattern.compare(suffixes[(int) middleValueIndex].substr(0, temporaryPatternLength)) != 0)
+//                    middleValueIndex++;     //chyba naprawione xD
+
             }
         }
 
@@ -75,9 +83,7 @@ bool PatternExecutor::findAll(PTable *pTable) {
         patternOccurrences.add(PatternOccurrence(currentPattern, occurrences));
     }
 
-    fileExecutor->
-            createResultFile(pathToResultFile, patternOccurrences
-    );
+    fileExecutor->createResultFile(pathToResultFile, patternOccurrences);
     return true;
 }
 

@@ -40,7 +40,8 @@ int main() {
                                                            "C:\\Users\\djnic\\git\\SuffixTable\\testFiles\\patternFile-camel.txt",
                                                            "C:\\Users\\djnic\\git\\SuffixTable\\testFiles\\textFile-camel.txt");
     AlgorithmExecutor *algorithmExecutor = new AlgorithmExecutor();
-    algorithmExecutor->setAlgorithm(new SuffixTableAlgorithm(fileExecutor->loadTextFile("C:\\Users\\djnic\\git\\SuffixTable\\testFiles\\textFile-camel.txt")));
+    algorithmExecutor->setAlgorithm(new SuffixTableAlgorithm(
+            fileExecutor->loadTextFile("C:\\Users\\djnic\\git\\SuffixTable\\testFiles\\textFile-camel.txt")));
     patternExecutor->findAll(algorithmExecutor->execute());
 
     return 0;
