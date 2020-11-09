@@ -7,7 +7,7 @@
 
 
 #include "FileExecutor.h"
-#include "../model/PTable.h"
+#include "datastructures/PTable.h"
 
 class PatternExecutor {
     FileExecutor *fileExecutor;
