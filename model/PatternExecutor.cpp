@@ -28,6 +28,7 @@ bool PatternExecutor::findAll(PTable *pTable) {
     List<int> occurrences;
 
     for (int i = 0; i < patterns.getSize(); i++) {
+        occurrences = List<int>::emptyList();
         std::string currentPattern = this->patterns.get(i);
         int patternBeginningIndex = 0, patternEndingIndex = length;
         int lowValueIndex, middleValueIndex = length, highValueIndex =
@@ -63,18 +64,23 @@ bool PatternExecutor::findAll(PTable *pTable) {
             }
         }
 
-        int j = middleValueIndex;
+        int j = middleValueIndex, found = 0;
         while (currentPattern.compare(suffixes[j].substr(0, temporaryPatternLength)) == 0) {
             occurrences.add(indexes[j]);
             j--;
+            found = 1;
         }
         j = middleValueIndex + 1;
         while (currentPattern.compare(suffixes[j].substr(0, temporaryPatternLength)) == 0) {
             occurrences.add(indexes[j]);
             j++;
+            found = 1;
         }
 
-        patternOccurrences.add(PatternOccurrence(currentPattern, occurrences));
+        if (found)
+            patternOccurrences.add(PatternOccurrence(currentPattern, occurrences));
+        else
+            patternOccurrences.add(PatternOccurrence(currentPattern, List<int>::emptyList()));
     }
 
     fileExecutor->createResultFile(pathToResultFile, patternOccurrences);

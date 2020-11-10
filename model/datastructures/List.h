@@ -24,6 +24,10 @@ class List {
 public:
     List() : head(nullptr), size(0) {};
 
+    static List emptyList() {
+        return List();
+    }
+
     int getSize() const {
         return size;
     }
