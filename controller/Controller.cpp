@@ -9,15 +9,18 @@
 #include "../model/LCPTableAlgorithm.h"
 
 
-void Controller::initializeApp() {
-    std::cout << "           _             ______                      _   " << std::endl;
-    std::cout << "     /\\   | |           |  ____|                    | |  " << std::endl;
-    std::cout << "    /  \\  | | __ _  ___ | |__  __  ___ __   ___ _ __| |_ " << std::endl;
-    std::cout << "   / /\\ \\ | |/ _` |/ _ \\|  __| \\ \\/ / '_ \\ / _ \\ '__| __|" << std::endl;
-    std::cout << "  / ____ \\| | (_| | (_) | |____ >  <| |_) |  __/ |  | |_ " << std::endl;
-    std::cout << " /_/    \\_\\_|\\__, |\\___/|______/_/\\_\\ .__/ \\___|_|   \\__|" << std::endl;
-    std::cout << "              __/ |                 | |                  " << std::endl;
-    std::cout << "             |___/                  |_|                  " << std::endl;
+void Controller::runApp(int argc, char *argv[]) {
+    view->startupApp(argc, argv);
+    populateParameters();
+    generateResults();
+    shutDownApp();
+}
+
+void Controller::populateParameters() {
+    pathToTextFile = view->getTextFilePath();
+    pathToResultFile = view->getResultFilePath();
+    pathToPatternFile = view->getPatternFilePath();
+    setAlgorithmExecutor(view->getAlgorithm());
 }
 
 bool Controller::generateResults() {
@@ -32,8 +35,7 @@ bool Controller::generateResults() {
 }
 
 void Controller::shutDownApp() {
-    std::cout << "Plik zapisany pod sciezka: " << pathToResultFile << std::endl;
-    std::cout << "Program zakonczyl dzialanie. " << std::endl;
+    view->shutdownApp();
 }
 
 void Controller::setPathToTextFile(const std::string &pathToTextFile) {

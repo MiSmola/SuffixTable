@@ -12,12 +12,12 @@ PatternExecutor::PatternExecutor(FileExecutor *fileExecutor, std::string pathToR
           pathToResultFile(pathToResultFile),
           patterns(fileExecutor->loadPatternFile(pathToPatternFile)),
           text(fileExecutor->loadTextFile(pathToTextFile)) {
-    std::cout << "LOGGER [PatternExecutor] " << this->patterns.to_string() << std::endl;
-    std::cout << "LOGGER [PatternExecutor] " << this->text << std::endl;
+    std::cout << "LOGGER [INFO] [PatternExecutor] " << this->patterns.to_string() << std::endl;
+    std::cout << "LOGGER [INFO] [PatternExecutor] " << this->text << std::endl;
 }
 
 bool PatternExecutor::findAll(PTable *pTable) {
-    std::cout << "LOGGER [PatternExecutor] " << "findAll process using... "
+    std::cout << "LOGGER [INFO] [PatternExecutor] " << "findAll process using... \n"
               << static_cast<SuffixTable *>(pTable)->to_string() << std::endl;
     std::string *suffixes = static_cast<SuffixTable *>(pTable)->getSuffix();
     int *indexes = static_cast<SuffixTable *>(pTable)->getIndex();
@@ -63,9 +63,6 @@ bool PatternExecutor::findAll(PTable *pTable) {
             if (currentPattern.compare(suffixes[(int) middleValueIndex].substr(0, temporaryPatternLength)) > 0) {
                 lowValueIndex = middleValueIndex;
                 middleValueIndex = (((length - 1) - lowValueIndex + 1) / 2) + lowValueIndex;
-//                if(currentPattern.compare(suffixes[(int) middleValueIndex].substr(0, temporaryPatternLength)) != 0)
-//                    middleValueIndex++;     //chyba naprawione xD
-
             }
         }
 

@@ -9,9 +9,10 @@
 #include "../model/AlgorithmExecutor.h"
 #include "../model/FileExecutor.h"
 #include "../model/PatternExecutor.h"
+#include "../view/View.h"
 
 class Controller {
-    //View
+    View *view = new View();
     FileExecutor *fileExecutor = new FileExecutor();
     AlgorithmExecutor *algorithmExecutor;
     PatternExecutor *patternExecutor;
@@ -19,7 +20,9 @@ class Controller {
     std::string pathToResultFile;
     std::string pathToPatternFile;
 public:
-    void initializeApp();
+    void runApp(int argc, char *argv[]);
+
+    void populateParameters();
 
     bool generateResults();
 
