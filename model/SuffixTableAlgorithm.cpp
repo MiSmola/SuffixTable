@@ -19,11 +19,6 @@ SuffixTableAlgorithm::SuffixTableAlgorithm(std::string text) : text(text) {
 }
 
 PTable *SuffixTableAlgorithm::execute() {
-    this->index = new int[length];
-    for (int i = 0; i < length; i++) {
-        index[i] = i;
-    }
-    suffix = new std::string[length];
     // FIXME: Don't startupApp more multiple times
     std::cout << APP_LOGGER_INFO_PREFIX << " [SuffixTableAlgorithm] algorithm executed" << std::endl;
     for (int index = 0; index < length; index++) {
