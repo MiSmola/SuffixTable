@@ -6,6 +6,7 @@
 #include <fstream>
 #include <string>
 #include "FileExecutor.h"
+#include "../view/ResourceBundle.h"
 
 
 std::string FileExecutor::createResultFile(std::string pathToFile, List<PatternOccurrence> patternOccurrence) {
@@ -23,7 +24,7 @@ std::string FileExecutor::createResultFile(std::string pathToFile, List<PatternO
         file << patterns;
         file.close();
     } else
-        std::cerr << "Error opening file" << std::endl;
+        std::cerr << APP_LOGGER_SEVERE_PREFIX << "Error opening file" << std::endl;
     return pathToFile;
 }
 
@@ -35,10 +36,8 @@ std::string FileExecutor::loadTextFile(std::string pathToSourceFile) {
             getline(file, line);
             result += line;
         }
-        std::cout << result << std::endl;
     } else
-        // TODO: pass file name into the cerr
-        std::cerr << "File " << pathToSourceFile << " can't be opened..." << std::endl;
+        std::cerr << APP_LOGGER_SEVERE_PREFIX << "File " << pathToSourceFile << " can't be opened..." << std::endl;
     file.close();
     return result;
 }
@@ -51,11 +50,9 @@ List<std::string> FileExecutor::loadPatternFile(std::string pathToPatternFile) {
         while (!file.eof()) {
             getline(file, line);
             listOfPatterns.add(line);
-            std::cout << line << std::endl;
         }
     else
-        // TODO: pass file name into the cerr
-        std::cerr << "File " << pathToPatternFile << " can't be opened..." << std::endl;
+        std::cerr << APP_LOGGER_SEVERE_PREFIX << "File " << pathToPatternFile << " can't be opened..." << std::endl;
     file.close();
     return listOfPatterns;
 }

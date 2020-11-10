@@ -12,20 +12,17 @@ PatternExecutor::PatternExecutor(FileExecutor *fileExecutor, std::string pathToR
           pathToResultFile(pathToResultFile),
           patterns(fileExecutor->loadPatternFile(pathToPatternFile)),
           text(fileExecutor->loadTextFile(pathToTextFile)) {
-    std::cout << "LOGGER [INFO] [PatternExecutor] " << this->patterns.to_string() << std::endl;
-    std::cout << "LOGGER [INFO] [PatternExecutor] " << this->text << std::endl;
+    std::cout << APP_LOGGER_INFO_PREFIX << " [PatternExecutor] " << this->patterns.to_string() << std::endl;
+    std::cout << APP_LOGGER_INFO_PREFIX << " [PatternExecutor] " << this->text << std::endl;
 }
 
 bool PatternExecutor::findAll(PTable *pTable) {
-    std::cout << "LOGGER [INFO] [PatternExecutor] " << "findAll process using... \n"
+    std::cout << APP_LOGGER_INFO_PREFIX << " [PatternExecutor] " << "findAll process using... \n"
               << static_cast<SuffixTable *>(pTable)->to_string() << std::endl;
     std::string *suffixes = static_cast<SuffixTable *>(pTable)->getSuffix();
     int *indexes = static_cast<SuffixTable *>(pTable)->getIndex();
     int length = static_cast<SuffixTable *>(pTable)->getLength();
 
-    // TODO: Implement binary search
-    // TODO: Implement range check to enable occurrences counting
-    // TODO: Create result file (filExecutor method) - remember about PatternOccurrences obj
 
     List<PatternOccurrence> patternOccurrences;
     List<int> occurrences;
@@ -42,7 +39,7 @@ bool PatternExecutor::findAll(PTable *pTable) {
                     patternBeginningIndex = i;
                     i++;
                     while (currentPattern.compare(0, temporaryPatternLength, suffixes[i]) ==
-                           0) { //i wyszukuje wszystkie
+                           0) {
                         patternEndingIndex = i;
                         i++;
                     }

@@ -30,7 +30,7 @@ bool Controller::generateResults() {
                                                     this->pathToPatternFile, this->pathToTextFile);
         result = patternExecutor->findAll(this->algorithmExecutor->execute());
     } else
-        std::cerr << "[SEVERE] Files paths are not set" << std::endl;
+        std::cerr << APP_LOGGER_SEVERE_PREFIX << "Files paths are not set" << std::endl;
     return result;
 }
 
@@ -61,7 +61,7 @@ void Controller::setAlgorithmExecutor(const std::string algorithm) {
             this->algorithmExecutor->setAlgorithm(new LCPTableAlgorithm());
         }
     } else
-        std::cerr << "[SEVERE] The algorithm or path to text file is not set" << std::endl;
+        std::cerr << APP_LOGGER_SEVERE_PREFIX << "The algorithm or path to text file is not set" << std::endl;
 }
 
 
