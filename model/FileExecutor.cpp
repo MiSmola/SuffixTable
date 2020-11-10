@@ -38,7 +38,7 @@ std::string FileExecutor::loadTextFile(std::string pathToSourceFile) {
         std::cout << result << std::endl;
     } else
         // TODO: pass file name into the cerr
-        std::cerr << "File " << "test.txt" << " can't be opened..." << std::endl;
+        std::cerr << "File " << pathToSourceFile << " can't be opened..." << std::endl;
     file.close();
     return result;
 }
@@ -55,7 +55,7 @@ List<std::string> FileExecutor::loadPatternFile(std::string pathToPatternFile) {
         }
     else
         // TODO: pass file name into the cerr
-        std::cerr << "File " << "test.txt" << " can't be opened..." << std::endl;
+        std::cerr << "File " << pathToPatternFile << " can't be opened..." << std::endl;
     file.close();
     return listOfPatterns;
 }
