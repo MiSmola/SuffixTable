@@ -18,9 +18,9 @@ void View::displayInstructionScreen() {
 }
 
 void View::displayStatusScreen() {
-    for (double i = 0; i <= 1; i += 0.25)
+    for (double i = 0; i <= 1; i += 0.2)
         printProgress(i);
-    std::cout << STATUS << std::endl;
+    std::cout << std::endl << STATUS << std::endl;
 }
 
 void View::displayEndScreen() {
@@ -39,11 +39,11 @@ void View::fetchParametersAndPopulateInputFields(int argc, char *argv[]) {
                 this->resultFilePath = argv[i + 1];
         }
     } else
-        std::cerr << "[SEVERE] The number of command line parameters is incorrect" << std::endl;
+        std::cerr << APP_LOGGER_SEVERE_PREFIX << "The number of command line parameters is incorrect" << std::endl;
 }
 
 void View::printProgress(double percentage) {
-    std::this_thread::sleep_for(std::chrono::milliseconds(500));
+    std::this_thread::sleep_for(std::chrono::milliseconds(300));
     int val = (int) (percentage * 100);
     int lpad = (int) (percentage * PBWIDTH);
     int rpad = PBWIDTH - lpad;

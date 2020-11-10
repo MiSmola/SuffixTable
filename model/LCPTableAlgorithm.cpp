@@ -4,8 +4,9 @@
 
 #include <iostream>
 #include "LCPTableAlgorithm.h"
+#include "../view/ResourceBundle.h"
 
 PTable *LCPTableAlgorithm::execute() {
-    std::cout << "LCPTableAlgorithm algorithm executed" << std::endl;
+    std::cout << APP_LOGGER_INFO_PREFIX << " LCPTableAlgorithm algorithm executed" << std::endl;
     return new PTable();
 }

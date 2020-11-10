@@ -20,7 +20,7 @@ SuffixTableAlgorithm::SuffixTableAlgorithm(std::string text) : text(text) {
 
 PTable *SuffixTableAlgorithm::execute() {
     // FIXME: Don't startupApp more multiple times
-    std::cout << "LOGGER [INFO] SuffixTableAlgorithm algorithm executed" << std::endl;
+    std::cout << APP_LOGGER_INFO_PREFIX << " [SuffixTableAlgorithm] algorithm executed" << std::endl;
     for (int index = 0; index < length; index++) {
         std::string text = "";
         for (int text_index = index; text_index < length; text_index++) {

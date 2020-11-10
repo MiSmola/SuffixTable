@@ -6,6 +6,8 @@
 #define SUFFIXTABLE_LIST_H
 
 #include <string>
+#include <iostream>
+#include "../../view/ResourceBundle.h"
 
 // TODO: change the definitions to the source file
 
@@ -64,7 +66,7 @@ public:
 
     T get(int index) {
         if (index > size || head == nullptr)
-            std::cerr << "Provided index = " << index << " is incorrect" << std::endl;
+            std::cerr << APP_LOGGER_SEVERE_PREFIX << "Provided index = " << index << " is incorrect" << std::endl;
         Node<T> *temp = head;
         int i = 0;
         while (temp->next) {

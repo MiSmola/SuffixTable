@@ -3,6 +3,7 @@
 //
 #include <iostream>
 #include "SuffixTable.h"
+#include "../../view/ResourceBundle.h"
 
 SuffixTable::SuffixTable(int *index, std::string *suffix, int length) : index(index), suffix(suffix), length(length) {}
 
@@ -13,7 +14,7 @@ void SuffixTable::add(int index, std::string suffix, int idx) {
         this->index[idx] = index;
         this->suffix[idx] = suffix;
     } else
-        std::cerr << "Array out of bound, the suffix cannot be added" << std::endl;
+        std::cerr << APP_LOGGER_SEVERE_PREFIX << "Array out of bound, the suffix cannot be added" << std::endl;
 }
 
 std::string SuffixTable::to_string() {
