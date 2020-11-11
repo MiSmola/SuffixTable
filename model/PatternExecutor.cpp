@@ -90,3 +90,7 @@ bool PatternExecutor::findAll(PTable *pTable) {
 void PatternExecutor::setFileExecutor(FileExecutor *fileExecutor) {
     PatternExecutor::fileExecutor = fileExecutor;
 }
+
+PatternExecutor::~PatternExecutor() {
+    delete fileExecutor;
+}

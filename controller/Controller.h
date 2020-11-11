@@ -20,6 +20,8 @@ class Controller {
     std::string pathToResultFile;
     std::string pathToPatternFile;
 public:
+    virtual ~Controller();
+
     void runApp(int argc, char *argv[]);
 
     void populateParameters();

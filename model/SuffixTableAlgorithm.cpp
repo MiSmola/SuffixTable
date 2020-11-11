@@ -44,3 +44,9 @@ PTable *SuffixTableAlgorithm::execute() {
     }
     return new SuffixTable(index, suffix, length);
 }
+
+SuffixTableAlgorithm::~SuffixTableAlgorithm() {
+    delete[] textCharacters;
+    delete[] index;
+    delete[] suffix;
+}

@@ -64,4 +64,11 @@ void Controller::setAlgorithmExecutor(const std::string algorithm) {
         std::cerr << APP_LOGGER_SEVERE_PREFIX << "The algorithm or path to text file is not set" << std::endl;
 }
 
+Controller::~Controller() {
+    delete fileExecutor;
+    delete algorithmExecutor;
+    delete patternExecutor;
+    delete view;
+}
+
 

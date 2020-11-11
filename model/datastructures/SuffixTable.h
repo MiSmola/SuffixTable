@@ -16,6 +16,8 @@ class SuffixTable : public PTable {
 public:
     SuffixTable(int *index, std::string *suffix, int length);
 
+    virtual ~SuffixTable();
+
     SuffixTable(int length);
 
     int *getIndex() const;

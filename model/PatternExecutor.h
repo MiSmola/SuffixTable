@@ -21,6 +21,8 @@ public:
     PatternExecutor(FileExecutor *fileExecutor, std::string pathToResultFile, std::string pathToPatternFile,
                     std::string pathToTextFile);
 
+    virtual ~PatternExecutor();
+
     bool findAll(PTable *pTable);
 
     void setFileExecutor(FileExecutor *fileExecutor);

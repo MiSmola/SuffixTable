@@ -17,6 +17,8 @@ class SuffixTableAlgorithm : public Algorithm {
 public:
     SuffixTableAlgorithm(std::string text);
 
+    virtual ~SuffixTableAlgorithm();
+
     PTable *execute();
 };
 

@@ -48,3 +48,8 @@ int SuffixTable::getLength() const {
 void SuffixTable::setLength(int length) {
     SuffixTable::length = length;
 }
+
+SuffixTable::~SuffixTable() {
+    delete[] index;
+    delete[] suffix;
+}

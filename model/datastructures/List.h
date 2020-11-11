@@ -24,6 +24,15 @@ class List {
 public:
     List() : head(nullptr), size(0) {};
 
+    virtual ~List() {
+        Node<T> *currentNode = this->head;
+        while (currentNode) {
+            Node<T> *nextNode = currentNode->next;
+            delete currentNode;
+            currentNode = nextNode;
+        }
+    }
+
     static List emptyList() {
         return List();
     }
